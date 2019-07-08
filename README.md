@@ -19,9 +19,9 @@ Describe how to install all development dependencies and how to run an automated
 
 ## Team Cactus
 
-Ben Reynolds-Carr <bjr.kitz@gmail.com>
-Francesca Chater <francescachater@gmail.com>
-Laurence Taylor <ltaylorapp@gmail.com>
-Oliver Brownlow <olliebrownlow@gmail.com>
+* Ben Reynolds-Carr <bjr.kitz@gmail.com>
+* Francesca Chater <francescachater@gmail.com>
+* Laurence Taylor <ltaylorapp@gmail.com>
+* Oliver Brownlow <olliebrownlow@gmail.com>
 
-This README based on the the [readme-template by Dan Bader](https://github.com/dbader/readme-template)
+This README is based on the the [readme-template by Dan Bader](https://github.com/dbader/readme-template)
