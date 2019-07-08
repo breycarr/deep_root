@@ -4,6 +4,11 @@
 [![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root)
 ## Installation
 
+Clone this repository:
+```
+$ git@github.com:breycarr/deep_root.git
+```
+Run `$ pip install -r requirements.txt` to install the necessary dependencies
 
 ## Usage example
 
