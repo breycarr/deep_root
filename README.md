@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root)
 ## Installation
-Ensure you have Python3 or later installed, then clone this repository:
+Ensure you have Python3 or later installed, then clone this repository.
 
 Run `$ pip3 install -r requirements.txt` to install the necessary dependencies
 
