@@ -1,6 +1,7 @@
 # Deep Root
 > The soil moisture tracker to help track plant health. Final @makersacademy project by Team Cactus
 
+[![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root)
 ## Installation
 
 
