@@ -1,14 +1,13 @@
 import time
-from board import SCL, SDA
+import board
 import busio
 from adafruit_seesaw.seesaw import Seesaw
-hello = "hello"
 
 class Plant():
 
     def soil_moisture(self):
 
-        i2c_bus = busio.I2C(SCL, SDA)
+        i2c_bus = busio.I2C(board.SCL, board.SDA)
 
         ss = Seesaw(i2c_bus, addr=0x36)
 
