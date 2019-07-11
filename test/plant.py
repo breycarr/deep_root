@@ -21,3 +21,4 @@ class Plant():
                 f.close()	
             print("moisture: " + str(moisture_level))
             time.sleep(60)
+            return moisture_level
