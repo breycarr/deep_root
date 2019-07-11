@@ -1,7 +1,7 @@
 # Deep Root
 > The soil moisture tracker to help track plant health. Final @makersacademy project by Team Cactus
 
-[![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root)
+[![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root) [![BCH compliance](https://bettercodehub.com/edge/badge/breycarr/deep_root?branch=master)](https://bettercodehub.com/)
 ## Installation
 Ensure you have [Python3 or later](https://www.python.org/downloads/) installed, then clone this repository.
 
