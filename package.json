@@ -1,0 +1,26 @@
+{
+  "name": "deep_root",
+  "version": "1.0.0",
+  "description": "> The soil moisture tracker to help track plant health. Final @makersacademy project by Team Cactus",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breycarr/deep_root.git"
+  },
+  "author": "Team Cactus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breycarr/deep_root/issues"
+  },
+  "homepage": "https://github.com/breycarr/deep_root#readme",
+  "devDependencies": {
+    "electron": "^5.0.6",
+    "spectron": "^7.0.0"
+  }
+}
