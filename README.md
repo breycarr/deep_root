@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root) [![Maintainability](https://api.codeclimate.com/v1/badges/3dc1d964235155d65b53/maintainability)](https://codeclimate.com/github/breycarr/deep_root/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/3dc1d964235155d65b53/test_coverage)](https://codeclimate.com/github/breycarr/deep_root/test_coverage) [![BCH compliance](https://bettercodehub.com/edge/badge/breycarr/deep_root?branch=master)](https://bettercodehub.com/)
+[![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root) [![Maintainability](https://api.codeclimate.com/v1/badges/3dc1d964235155d65b53/maintainability)](https://codeclimate.com/github/breycarr/deep_root/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/breycarr/deep_root?branch=master)](https://bettercodehub.com/)
 
 # Project DEEPROOT by Team C A C T U S
-
+> The soil moisture tracker to help track plant health. Final @makersacademy project by Team Cactus
 
 - MVP 1: An LED light display to track plant health.
 - MVP 2: A touchscreen to track plant health.
