@@ -9,13 +9,13 @@
 <body>
     <div id="chart"></div>
     <input type= button value="Start" id="startButton">
-    <input type= button value="Stop" id="stopButton">
+    <input type= button value="Stop" id="stopButton" style="display: none;">
 
     <script>
           var interval, cnt, startButton, stopButton
 
           cnt = 0;
-          
+
           function getData() {
               return Math.random();
           }
@@ -27,6 +27,8 @@
 
           startButton = document.getElementById("startButton")
           startButton.onclick = function() {
+          startButton.style.display = "none"
+          stopButton.style.display = "block"
           interval = setInterval(function(){
             Plotly.extendTraces("chart",{y:[[getData()]]},[0]);
             cnt++;
@@ -44,6 +46,8 @@
 
         stopButton = document.getElementById("stopButton")
         stopButton.onclick = function() {
+          startButton.style.display = "block"
+          stopButton.style.display = "none"
           clearInterval(interval)
         }
     </script>
