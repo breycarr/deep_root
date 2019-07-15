@@ -14,6 +14,6 @@ before_script:
   - ./cc-test-reporter before-build
 # command to run tests
 script:
-  - pytest
+  - pytest --cov=src
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
