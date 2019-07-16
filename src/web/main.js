@@ -4,11 +4,6 @@ var interval, cnt, startButton, stopButton
 
 cnt = 0;
 
-function getData() {
-  return Math.random();
-}
-
-
 // Create graph lines	
 Plotly.plot("chart",[{
   y:[],
@@ -30,7 +25,8 @@ startButton.onclick = function() {
   interval = setInterval(async function(){
     reading = await getReading();
     eel.create(reading)();
-    plotGraph(reading);       
+    plotGraph(reading);  
+    console.log(reading);     
   }, 1000);
 
 stopButton.onclick = function() {
@@ -61,19 +57,24 @@ function getReading() {
     return eel.get_reading_for_eel()()
 }
 
+(async function() {
+  let all_time_data = await eel.format_readings()();
+  
+  console.log(all_time_data)
+  console.log(all_time_data[0])
+  console.log(all_time_data[1])
 
-let all_time_data = eel.format_readings()()
-console.log(all_time_data)
-
-var data = [
-  {
-    x: all_time_data[1],
-    y: all_time_data[0],
-    type: 'scatter'
-  }
-];
-
-Plotly.newPlot('all-time-chart', data);
-
+  
+  var data = [
+    {
+      x: all_time_data[1],
+      y: all_time_data[0],
+      type: 'scatter'
+    }
+  ];
+  
+  Plotly.newPlot('all-time-chart', data);
+  
+})();
 
 };
