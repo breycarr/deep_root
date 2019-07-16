@@ -11,9 +11,13 @@ function getData() {
 
 // Create graph lines	
 Plotly.plot("chart",[{
-  y:[getData()],
+  y:[],
   type:'line'
-}]);
+}], {
+  yaxis: {
+    range: [300, 1015]
+  }
+});
 
 startButton = document.getElementById("startButton")
 stopButton = document.getElementById("stopButton")
@@ -37,8 +41,9 @@ stopButton.onclick = function() {
 
 }
 
-function plotGraph(){
-Plotly.extendTraces("chart",{y:[[getData()]]},[0]);
+async function plotGraph(){
+  console.log(await getReading());
+Plotly.extendTraces("chart",{y:[[await getReading()]]},[0]);
 cnt++;
 
 //moving y axis along 
@@ -50,8 +55,9 @@ cnt++;
     });
    }
 }
-};
 
-function saveData() {
-	console.log(eel.get_reading_for_eel()())
+function getReading() {
+    return eel.get_reading_for_eel()()
 }
+
+};
