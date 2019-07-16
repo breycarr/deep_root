@@ -6,7 +6,7 @@ conn = sqlite3.connect('soil_moisture_test.db')
 
 c = conn.cursor()
 
-c.execute('DROP TABLE readings')
+c.execute('DROP TABLE IF EXISTS readings')
 
 moisture_reading.create_table(c)
 
