@@ -61,4 +61,19 @@ function getReading() {
     return eel.get_reading_for_eel()()
 }
 
+
+let all_time_data = eel.format_readings()()
+console.log(all_time_data)
+
+var data = [
+  {
+    x: all_time_data[1],
+    y: all_time_data[0],
+    type: 'scatter'
+  }
+];
+
+Plotly.newPlot('all-time-chart', data);
+
+
 };

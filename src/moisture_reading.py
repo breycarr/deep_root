@@ -27,3 +27,13 @@ def create(reading, time_class = datetime, cursor = c):
 def all(cursor = c):
     cursor.execute('SELECT * FROM readings')
     return cursor.fetchall()
+
+
+@eel.expose
+def format_readings(cursor = c):
+    x = []
+    y = []
+    for dbentry in all(cursor):
+       x.append(dbentry[2])
+       y.append(dbentry[1])
+    return [y, x]
