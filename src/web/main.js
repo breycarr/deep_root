@@ -16,14 +16,18 @@ Plotly.plot("chart",[{
 
 startButton = document.getElementById("startButton")
 stopButton = document.getElementById("stopButton")
+displaying_reading = document.getElementById("displaying-reading")
+display = document.getElementById("reading")
 
 startButton.onclick = function() {
   alert("Make sure the sensor is in the soil")
   startButton.style.display = "none"
   stopButton.style.display = "block"
+  displaying_reading.style.display = "block"
  
   interval = setInterval(async function(){
     reading = await getReading();
+    display.innerHTML = reading;
     eel.create(reading)();
     plotGraph(reading);  
     console.log(reading);     
