@@ -15,11 +15,26 @@ Plotly.plot("chart",[{
   }
 });
 
-startButton = document.getElementById("startButton")
-stopButton = document.getElementById("stopButton")
-displaying_reading = document.getElementById("displaying-reading")
-display = document.getElementById("reading")
-moistureText = document.getElementById("moisture-text")
+startButton = document.getElementById("startButton");
+stopButton = document.getElementById("stopButton");
+displaying_reading = document.getElementById("displaying-reading");
+display = document.getElementById("reading");
+moistureText = document.getElementById("moisture-text");
+showHist = document.getElementById("showHist");
+showLive = document.getElementById("showLive");
+histPage = document.getElementById("all-time-chart-page");
+livePage = document.getElementById("live-chart-page");
+
+showHist.onclick = function() {
+  createHistGraph();
+  histPage.style.display = "block";
+  livePage.style.display = "none";
+}
+
+showLive.onclick = function() {
+  histPage.style.display = "none";
+  livePage.style.display = "block";
+}
 
 startButton.onclick = function() {
   alert("Make sure the sensor is in the soil")
@@ -36,6 +51,7 @@ startButton.onclick = function() {
     eel.create(reading)();
     plotGraph(reading);    
   }, 1000);
+}
 
 stopButton.onclick = function() {
   startButton.style.display = "block"
@@ -43,11 +59,6 @@ stopButton.onclick = function() {
   clearInterval(interval)
   
 }
-
-
-
-}
-
 
 function categoriseReading(reading){
   if (reading < 500){
@@ -77,13 +88,8 @@ function getReading() {
     return eel.get_reading_for_eel()()
 }
 
-(async function() {
+async function createHistGraph() {
   let all_time_data = await eel.format_readings()();
-  
-  console.log(all_time_data)
-  console.log(all_time_data[0])
-  console.log(all_time_data[1])
-
   
   var data = [
     {
@@ -96,6 +102,6 @@ function getReading() {
   
   Plotly.newPlot('all-time-chart', data);
   
-})();
+};
 
 };

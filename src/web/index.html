@@ -9,16 +9,22 @@
     
 </head>
 <body>
-    <div id="displaying-reading" style="display: none">Your plant's current soil moisture reading: 
-      <span id="reading"></span>
-      <br>
-      <span id="moisture-text"></span>
+    <input type="button" value="Show Historical Data" id="showHist">
+    <input type="button" value="Show Live Data" id="showLive">
+    
+    <div id="live-chart-page">
+      <div id="displaying-reading" style="display: none">Your plant's current soil moisture reading: 
+        <span id="reading"></span>
+        <br>
+        <span id="moisture-text"></span>
+      </div>
+      <div id="chart"></div>
+      <input type="button" value="Start" id="startButton">
+      <input type="button" value="Stop" id="stopButton" style="display: none">
     </div>
- 
-    <div id="chart"></div>
-    <input type= button value="Start" id="startButton">
-    <input type= button value="Stop" id="stopButton" style="display: none;">
-    <div id="all-time-chart"></div>
-
+    
+    <div id="all-time-chart-page" style="display: none">
+        <div id="all-time-chart"></div>
+    </div>
 </body>
 </html>
