@@ -27,9 +27,10 @@ startButton.onclick = function() {
   startButton.style.display = "none"
   stopButton.style.display = "block"
  
-  interval = setInterval(function(){
-	  plotGraph();       
-	}, 1000);
+  interval = setInterval(async function(){
+    reading = await getReading();
+    plotGraph(reading);       
+  }, 1000);
 
 stopButton.onclick = function() {
   startButton.style.display = "block"
@@ -41,9 +42,8 @@ stopButton.onclick = function() {
 
 }
 
-async function plotGraph(){
-  console.log(await getReading());
-Plotly.extendTraces("chart",{y:[[await getReading()]]},[0]);
+function plotGraph(reading){
+  Plotly.extendTraces("chart",{y:[[reading]]},[0]);
 cnt++;
 
 //moving y axis along 
