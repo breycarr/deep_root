@@ -15,9 +15,9 @@ def create_table(cursor = c):
                    )""")
 
 @eel.expose
-def create(reading, current_time = datetime.now(), cursor = c):
+def create(reading, time_class = datetime, cursor = c):
     with conn:
-        datetime_string = current_time.strftime('%Y-%m-%d %H:%M:%S')
+        datetime_string = time_class.now().strftime('%Y-%m-%d %H:%M:%S')
         cursor.execute(f"INSERT INTO readings(reading, datetime) VALUES ({reading}, '{datetime_string}')")
         query = f'SELECT * FROM readings WHERE id={cursor.lastrowid}'
         res = cursor.execute(query)

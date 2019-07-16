@@ -1,9 +1,11 @@
 import time
 import eel
+import moisture_reading
 from controller import Controller
 from plant import Plant
 from light import Light
 
+moisture_reading.create_table()
 app = Controller()
 plant = Plant()
 

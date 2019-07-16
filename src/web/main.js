@@ -29,6 +29,7 @@ startButton.onclick = function() {
  
   interval = setInterval(async function(){
     reading = await getReading();
+    eel.create(reading)();
     plotGraph(reading);       
   }, 1000);
 
