@@ -1,4 +1,8 @@
 Adafruit-Blinka
+adafruit-circuitpython-seesaw
+circuitpython-build-tools 
+Sphinx 
+sphinx-rtd-theme
 atomicwrites==1.3.0
 attrs==19.1.0
 coverage==4.5.3
