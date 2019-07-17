@@ -4,7 +4,7 @@ var interval, cnt, startButton, stopButton
 
 cnt = 0;
 
-// Create graph lines	
+// Create graph lines
 Plotly.plot("chart",[{
   y:[],
   line: {shape: 'spline'},
@@ -12,8 +12,11 @@ Plotly.plot("chart",[{
 }], {
   yaxis: {
     range: [300, 1030]
-  }
-});
+  },
+  height:200,
+  width:450,
+  margin: {l: 35, r: 35, t: 10, b: 20},
+}, {displayModeBar: false});
 
 startButton = document.getElementById("startButton");
 stopButton = document.getElementById("stopButton");
@@ -40,32 +43,37 @@ startButton.onclick = function() {
   alert("Make sure the sensor is in the soil")
   startButton.style.display = "none"
   stopButton.style.display = "block"
-  displaying_reading.style.display = "block"
- 
+  displaying_reading.style.visibility = "visible"
+
   interval = setInterval(async function(){
     reading = await getReading();
-    
+
     moistureText.innerHTML = categoriseReading(reading);
-    
+
     display.innerHTML = reading;
     eel.create(reading)();
-    plotGraph(reading);    
+    plotGraph(reading);
   }, 1000);
 }
 
 stopButton.onclick = function() {
   startButton.style.display = "block"
   stopButton.style.display = "none"
+  body.setAttribute('bgcolor', 'black')
+  displaying_reading.style.visibility = "hidden"
   clearInterval(interval)
-  
+
 }
 
 function categoriseReading(reading){
   if (reading < 500){
+      body.setAttribute('bgcolor', '#F07070')
       return "Soil is too dry"
     } else if (reading > 799) {
+      body.setAttribute('bgcolor', '#2177CD')
       return "Soil is too wet"
     } else {
+      body.setAttribute('bgcolor', '#21CD6D')
       return "Soil is juuust right"
     }
   }
@@ -74,7 +82,7 @@ function plotGraph(reading){
   Plotly.extendTraces("chart",{y:[[reading]]},[0]);
 cnt++;
 
-//moving y axis along 
+//moving y axis along
   if(cnt > 20) {
     Plotly.relayout('chart', {
 	  xaxis: {
@@ -90,7 +98,7 @@ function getReading() {
 
 async function createHistGraph() {
   let all_time_data = await eel.format_readings()();
-  
+
   var data = [
     {
       x: all_time_data[1],
@@ -99,9 +107,9 @@ async function createHistGraph() {
       type: 'scatter'
     }
   ];
-  
+
   Plotly.newPlot('all-time-chart', data);
-  
+
 };
 
 };
