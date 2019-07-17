@@ -43,7 +43,7 @@ showLive.onclick = function() {
 startButton.onclick = function() {
   alert("Make sure the sensor is in the soil")
   startButton.style.display = "none"
-  stopButton.style.display = "block"
+  stopButton.style.display = "inline-block"
   displaying_reading.style.visibility = "visible"
 
   interval = setInterval(async function(){
@@ -58,7 +58,7 @@ startButton.onclick = function() {
 }
 
 stopButton.onclick = function() {
-  startButton.style.display = "block"
+  startButton.style.display = "inline-block"
   stopButton.style.display = "none"
   body.setAttribute('bgcolor', 'black')
   displaying_reading.style.visibility = "hidden"
