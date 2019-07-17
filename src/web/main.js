@@ -20,6 +20,7 @@ Plotly.plot("chart",[{
 
 startButton = document.getElementById("startButton");
 stopButton = document.getElementById("stopButton");
+resetButton = document.getElementById("resetButton");
 displaying_reading = document.getElementById("displaying-reading");
 display = document.getElementById("reading");
 moistureText = document.getElementById("moisture-text");
@@ -64,6 +65,11 @@ stopButton.onclick = function() {
   clearInterval(interval)
 
 }
+
+resetButton.onclick = function() {
+  window.location.reload();
+}
+
 
 function categoriseReading(reading){
   if (reading < 500){
