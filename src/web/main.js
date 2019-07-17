@@ -12,8 +12,11 @@ Plotly.plot("chart",[{
 }], {
   yaxis: {
     range: [300, 1030]
-  }
-});
+  },
+  height:200,
+  width:450,
+  margin: {l: 25, r: 25, t: 20, b: 20},
+}, {displayModeBar: false});
 
 startButton = document.getElementById("startButton");
 stopButton = document.getElementById("stopButton");
