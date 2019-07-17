@@ -4,7 +4,7 @@ var interval, cnt, startButton, stopButton
 
 cnt = 0;
 
-// Create graph lines	
+// Create graph lines
 Plotly.plot("chart",[{
   y:[],
   line: {shape: 'spline'},
@@ -15,7 +15,7 @@ Plotly.plot("chart",[{
   },
   height:200,
   width:450,
-  margin: {l: 25, r: 25, t: 20, b: 20},
+  margin: {l: 35, r: 35, t: 10, b: 20},
 }, {displayModeBar: false});
 
 startButton = document.getElementById("startButton");
@@ -44,15 +44,15 @@ startButton.onclick = function() {
   startButton.style.display = "none"
   stopButton.style.display = "block"
   displaying_reading.style.display = "block"
- 
+
   interval = setInterval(async function(){
     reading = await getReading();
-    
+
     moistureText.innerHTML = categoriseReading(reading);
-    
+
     display.innerHTML = reading;
     eel.create(reading)();
-    plotGraph(reading);    
+    plotGraph(reading);
   }, 1000);
 }
 
@@ -60,15 +60,18 @@ stopButton.onclick = function() {
   startButton.style.display = "block"
   stopButton.style.display = "none"
   clearInterval(interval)
-  
+
 }
 
 function categoriseReading(reading){
   if (reading < 500){
+      body.setAttribute('bgcolor', 'red')
       return "Soil is too dry"
     } else if (reading > 799) {
+      body.setAttribute('bgcolor', 'blue')
       return "Soil is too wet"
     } else {
+      body.setAttribute('bgcolor', 'green')
       return "Soil is juuust right"
     }
   }
@@ -77,7 +80,7 @@ function plotGraph(reading){
   Plotly.extendTraces("chart",{y:[[reading]]},[0]);
 cnt++;
 
-//moving y axis along 
+//moving y axis along
   if(cnt > 20) {
     Plotly.relayout('chart', {
 	  xaxis: {
@@ -93,7 +96,7 @@ function getReading() {
 
 async function createHistGraph() {
   let all_time_data = await eel.format_readings()();
-  
+
   var data = [
     {
       x: all_time_data[1],
@@ -102,9 +105,9 @@ async function createHistGraph() {
       type: 'scatter'
     }
   ];
-  
+
   Plotly.newPlot('all-time-chart', data);
-  
+
 };
 
 };

@@ -4,17 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant Progress</title>
     <script type='text/javascript' src='eel.js'></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type='text/javascript' src='main.js'></script>
-    
+
 </head>
-<body bgcolor="#21CD6D"> 
+<body bgcolor="#21CD6D" id='body'>
     <center>
     <input type="button" value="Show Historical Data" id="showHist">
     <input type="button" value="Show Live Data" id="showLive">
-    
+
     <div id="live-chart-page">
-      <div id="displaying-reading" style="display: none">Your plant's current soil moisture reading: 
+      <div id="displaying-reading" style="display: none">Your plant's current soil moisture reading:
         <span id="reading"></span>
         <br>
         <span id="moisture-text"></span>
@@ -23,7 +23,7 @@
       <input type="button" value="Start" id="startButton">
       <input type="button" value="Stop" id="stopButton" style="display: none">
     </div>
-    
+
     <div id="all-time-chart-page" style="display: none">
         <div id="all-time-chart"></div>
     </div>
