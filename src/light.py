@@ -1,7 +1,7 @@
 try:
     import RPi.GPIO as GPIO
 except ImportError:
-    from rpidevmocks import MockGPIO, Mock_smbusModule, MockSPI
+    from rpidevmocks import MockGPIO
     GPIO = MockGPIO()
 
 REDLIGHT = 18

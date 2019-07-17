@@ -1,4 +1,4 @@
-try:  
+try:
     import board
 except NotImplementedError:
     from adafruit_blinka import board
@@ -6,6 +6,7 @@ except NotImplementedError:
 import busio
 import eel
 from adafruit_seesaw.seesaw import Seesaw
+
 
 class Plant():
 
@@ -18,6 +19,7 @@ class Plant():
 
 
 plant_object = Plant()
+
 
 @eel.expose
 def get_reading_for_eel():
