@@ -13,9 +13,11 @@ moisture_reading.create_table(c)
 frozen_time = datetime.now()
 frozen_time_string = frozen_time.strftime('%Y-%m-%d %H:%M:%S')
 
+
 class MockDateTime():
     def now():
         return frozen_time
+
 
 class TestDatabase():
 
@@ -30,11 +32,11 @@ class TestDatabase():
         reading2 = moisture_reading.create(800, MockDateTime, c)
         assert moisture_reading.all(c) == [reading1, reading2]
 
-
     def test_format_readings(self):
         c.execute('DELETE FROM readings')
-        reading1 = moisture_reading.create(700, MockDateTime, c)
-        reading2 = moisture_reading.create(800, MockDateTime, c)
-        assert moisture_reading.format_readings(c) == [[700, 800], [frozen_time_string, frozen_time_string]]
-
-
+        moisture_reading.create(700, MockDateTime, c)
+        moisture_reading.create(800, MockDateTime, c)
+        assert moisture_reading.format_readings(c) == [
+            [700, 800],
+            [frozen_time_string, frozen_time_string]
+        ]

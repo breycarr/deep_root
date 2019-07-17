@@ -2,6 +2,7 @@ from light import Light
 
 light = Light()
 
+
 def test_red(capsys):
     light.red()
     captured = capsys.readouterr()
