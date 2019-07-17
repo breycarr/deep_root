@@ -34,6 +34,8 @@ class TestDatabase():
 
     def test_format_readings(self):
         c.execute('DELETE FROM readings')
+        moisture_reading.create(700, MockDateTime, c)
+        moisture_reading.create(800, MockDateTime, c)
         assert moisture_reading.format_readings(c) == [
             [700, 800],
             [frozen_time_string, frozen_time_string]
