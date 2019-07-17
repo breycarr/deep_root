@@ -3,5 +3,4 @@ source = src
 omit =
     src/rpidevmocks.py
     src/light.pyc
-    src/controller_test.py
-    src/light_test.py
+    src/*_test.py
