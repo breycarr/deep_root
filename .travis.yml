@@ -8,9 +8,7 @@ python: "3.7"
 # command to install dependencies
 install:
   - pip3 install -r requirements.txt
-  - pip3 install adafruit-circuitpython-seesaw
-  - pip3 install circuitpython-build-tools Sphinx sphinx-rtd-theme
-
+  
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
