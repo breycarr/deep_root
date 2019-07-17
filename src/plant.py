@@ -1,8 +1,11 @@
-import board
+try:  
+    import board
+except NotImplementedError:
+    from adafruit_blinka import board
+
 import busio
 import eel
 from adafruit_seesaw.seesaw import Seesaw
-
 
 class Plant():
 
