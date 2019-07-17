@@ -43,7 +43,7 @@ startButton.onclick = function() {
   alert("Make sure the sensor is in the soil")
   startButton.style.display = "none"
   stopButton.style.display = "block"
-  displaying_reading.style.display = "block"
+  displaying_reading.style.visibility = "visible"
 
   interval = setInterval(async function(){
     reading = await getReading();
@@ -59,19 +59,21 @@ startButton.onclick = function() {
 stopButton.onclick = function() {
   startButton.style.display = "block"
   stopButton.style.display = "none"
+  body.setAttribute('bgcolor', 'black')
+  displaying_reading.style.visibility = "hidden"
   clearInterval(interval)
 
 }
 
 function categoriseReading(reading){
   if (reading < 500){
-      body.setAttribute('bgcolor', 'red')
+      body.setAttribute('bgcolor', '#F07070')
       return "Soil is too dry"
     } else if (reading > 799) {
-      body.setAttribute('bgcolor', 'blue')
+      body.setAttribute('bgcolor', '#2177CD')
       return "Soil is too wet"
     } else {
-      body.setAttribute('bgcolor', 'green')
+      body.setAttribute('bgcolor', '#21CD6D')
       return "Soil is juuust right"
     }
   }
