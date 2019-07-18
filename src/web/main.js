@@ -107,8 +107,11 @@ async function createHistGraph() {
     }
   ];
 
-  Plotly.newPlot('all-time-chart', data);
-
+  Plotly.newPlot('all-time-chart', data, {
+    height:200,
+    width:450,
+    margin: {l: 35, r: 35, t: 10, b: 20},
+  }, {displayModeBar: false});
 };
 
 };
