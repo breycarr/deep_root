@@ -107,10 +107,8 @@ window.onload = function () {
     Swal.fire({
        title: "Before you start",
        text: "Make sure the sensor is in the soil",
-       confirmButtonText: "Begin monitoring",
-       height: 100,
-       width: 350
-     });
+       confirmButtonText: "Begin monitoring"
+     }).then(() => {
     startButton.style.display = 'none';
     stopButton.style.display = 'inline-block';
     displayingReading.style.visibility = 'visible';
@@ -124,7 +122,7 @@ window.onload = function () {
       eel.create(reading)();
       plotGraph(reading);
     }, 1000);
-  };
+  })};
 
   stopButton.onclick = function () {
     startButton.style.display = 'inline-block';
