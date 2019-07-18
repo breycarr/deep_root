@@ -1,0 +1,25 @@
+{
+  "name": "deep_root",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root) [![Maintainability](https://api.codeclimate.com/v1/badges/3dc1d964235155d65b53/maintainability)](https://codeclimate.com/github/breycarr/deep_root/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/breycarr/deep_root?branch=master)](https://bettercodehub.com/)",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breycarr/deep_root.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breycarr/deep_root/issues"
+  },
+  "homepage": "https://github.com/breycarr/deep_root#readme"
+}
