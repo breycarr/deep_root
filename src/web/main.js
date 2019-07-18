@@ -84,6 +84,7 @@ window.onload = function () {
       body.setAttribute('style', 'background:url(images/too_dry.gif); background-repeat:no-repeat; background-size:cover');
       return 'Soil is too dry';
     } if (reading > 799) {
+      displayingReading.setAttribute('style', 'color: black');
       body.setAttribute('style', 'background:url(images/too_wet.gif); background-repeat:no-repeat; background-size:cover');
       return 'Soil is too wet';
     } else {
