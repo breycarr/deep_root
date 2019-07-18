@@ -1,11 +1,11 @@
 body {
     background: url(../images/grass.gif);
     background-repeat:no-repeat; center; fixed;
-    background-size: cover; 
+    background-size: cover;
     height: 94.5vh;
     font-family: 'Ubuntu', sans-serif;
 }
-  
+
 #showHist, #showLive, #startButton, #stopButton, #resetButton {
     font-family: 'Ubuntu', sans-serif;
     padding: 2px 6px;
@@ -34,6 +34,7 @@ body {
 }
 
 #displaying-reading {
+    color: white;
     visibility: hidden;
 }
 
@@ -43,5 +44,4 @@ body {
 
 #all-time-chart-page {
     display: none;
-} 
-  
+}
