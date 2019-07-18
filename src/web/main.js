@@ -59,7 +59,7 @@ startButton.onclick = function() {
 stopButton.onclick = function() {
   startButton.style.display = "block"
   stopButton.style.display = "none"
-  body.setAttribute('bgcolor', 'black')
+  // body.setAttribute('bg', 'black')
   displaying_reading.style.visibility = "hidden"
   clearInterval(interval)
 
