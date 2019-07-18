@@ -81,11 +81,10 @@ window.onload = function () {
 
   function categoriseReading(reading) {
     if (reading < 500) {
-      body.setAttribute('style', 'background:url(images/too_dry.gif); background-repeat:no-repeat; background-size:cover');
+      body.setAttribute('style', 'background:url(images/too_dry.gif); background-repeat:no-repeat; background-size:cover; rotate="180"')
       return 'Soil is too dry';
     } if (reading > 799) {
-      displayingReading.setAttribute('style', 'color: black');
-      body.setAttribute('style', 'background:url(images/too_wet.gif); background-repeat:no-repeat; background-size:cover');
+      body.setAttribute('style', 'background:url(https://i.imgur.com/aFXxThM.gif); background-repeat:no-repeat; background-size:cover');
       return 'Soil is too wet';
     } else {
       body.setAttribute('style', 'background:url(images/just_right.gif); background-repeat:no-repeat; background-size:cover');
