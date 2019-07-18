@@ -34,6 +34,7 @@ body {
 }
 
 #displaying-reading {
+    color: white;
     visibility: hidden;
 }
 
@@ -45,10 +46,6 @@ body {
     display: none;
 }
 
-.swal-size {
-  height: 100px !important;
-  width: 225px !important
-}
 .swal-footer {
   text-align: center;
 }
