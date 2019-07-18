@@ -38,6 +38,24 @@ window.onload = function () {
     displayModeBar: false,
   });
 
+  function plotGraph(reading) {
+    Plotly.extendTraces('chart', {
+      y: [
+        [reading],
+      ],
+    }, [0]);
+    cnt += 1;
+
+    // moving y axis along
+    if (cnt > 20) {
+      Plotly.relayout('chart', {
+        xaxis: {
+          range: [cnt - 20, cnt],
+        },
+      });
+    }
+  }
+
   async function createHistGraph() {
     let allTimeData = await eel.format_readings()();
 
@@ -53,16 +71,33 @@ window.onload = function () {
     Plotly.newPlot('all-time-chart', data);
   }
 
+  function getReading() {
+    return eel.get_reading_for_eel()();
+  }
+
+  function categoriseReading(reading) {
+    if (reading < 500) {
+      body.setAttribute('bgcolor', '#F07070');
+      return 'Soil is too dry';
+    } if (reading > 799) {
+      body.setAttribute('bgcolor', '#2177CD');
+      return 'Soil is too wet';
+    } else {
+      body.setAttribute('bgcolor', '#21CD6D');
+      return 'Soil is juuust right';
+    }
+  }
+
   showHist.onclick = function () {
     createHistGraph();
     histPage.style.display = 'block';
     livePage.style.display = 'none';
-  }
+  };
 
   showLive.onclick = function () {
     histPage.style.display = 'none';
     livePage.style.display = 'block';
-  }
+  };
 
   startButton.onclick = function () {
     alert('Make sure the sensor is in the soil');
@@ -71,7 +106,7 @@ window.onload = function () {
     displayingReading.style.visibility = 'visible';
 
     interval = setInterval(async function () {
-      reading = await getReading();
+      let reading = await getReading();
 
       moistureText.innerHTML = categoriseReading(reading);
 
@@ -92,40 +127,4 @@ window.onload = function () {
   resetButton.onclick = function () {
     window.location.reload();
   };
-
-
-  function categoriseReading(reading) {
-    if (reading < 500) {
-      body.setAttribute('bgcolor', '#F07070')
-      return 'Soil is too dry';
-    } else if (reading > 799) {
-      body.setAttribute('bgcolor', '#2177CD')
-      return 'Soil is too wet';
-    } else {
-      body.setAttribute('bgcolor', '#21CD6D')
-      return 'Soil is juuust right';
-    }
-  }
-
-  function plotGraph(reading) {
-    Plotly.extendTraces('chart', {
-      y: [
-        [reading]
-      ]
-    }, [0]);
-    cnt++;
-
-    //moving y axis along
-    if (cnt > 20) {
-      Plotly.relayout('chart', {
-        xaxis: {
-          range: [cnt - 20, cnt]
-        }
-      });
-    }
-  }
-
-  function getReading() {
-    return eel.get_reading_for_eel()();
-  }
 };
