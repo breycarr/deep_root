@@ -68,7 +68,11 @@ window.onload = function () {
       type: 'scatter',
     }];
 
-    Plotly.newPlot('all-time-chart', data);
+  Plotly.newPlot('all-time-chart', data, {
+    height:200,
+    width:450,
+    margin: {l: 35, r: 35, t: 10, b: 20},
+    }, {displayModeBar: false});
   }
 
   function getReading() {
@@ -87,7 +91,7 @@ window.onload = function () {
       return 'Soil is juuust right';
     }
   }
-
+  
   showHist.onclick = function () {
     createHistGraph();
     histPage.style.display = 'block';
@@ -119,7 +123,6 @@ window.onload = function () {
   stopButton.onclick = function () {
     startButton.style.display = 'inline-block';
     stopButton.style.display = 'none';
-    body.setAttribute('bgcolor', 'black');
     displayingReading.style.visibility = 'hidden';
     clearInterval(interval);
   };
