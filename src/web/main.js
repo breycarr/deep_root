@@ -81,17 +81,17 @@ window.onload = function () {
 
   function categoriseReading(reading) {
     if (reading < 500) {
-      body.setAttribute('bgcolor', '#F07070');
+      body.setAttribute('background', url(./images/too_dry.gif));
       return 'Soil is too dry';
     } if (reading > 799) {
-      body.setAttribute('bgcolor', '#2177CD');
+      body.setAttribute('background', url(./images/too_wet.gif));
       return 'Soil is too wet';
     } else {
-      body.setAttribute('bgcolor', '#21CD6D');
+      body.setAttribute('background', url(./images/just_right.gif));
       return 'Soil is juuust right';
     }
   }
-  
+
   showHist.onclick = function () {
     createHistGraph();
     histPage.style.display = 'block';
