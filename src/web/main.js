@@ -104,7 +104,13 @@ window.onload = function () {
   };
 
   startButton.onclick = function () {
-    alert('Make sure the sensor is in the soil');
+    Swal.fire({
+       title: "Before you start",
+       text: "Make sure the sensor is in the soil",
+       confirmButtonText: "Begin monitoring",
+       height: 100,
+       width: 350
+     });
     startButton.style.display = 'none';
     stopButton.style.display = 'inline-block';
     displayingReading.style.visibility = 'visible';

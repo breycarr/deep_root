@@ -45,3 +45,7 @@ body {
 #all-time-chart-page {
     display: none;
 }
+
+.swal-footer {
+  text-align: center;
+}
