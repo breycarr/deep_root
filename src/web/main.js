@@ -1,121 +1,131 @@
-window.onload = function(){
+window.onload = function () {
+  const startButton = document.getElementById('startButton');
+  const stopButton = document.getElementById('stopButton');
+  const resetButton = document.getElementById('resetButton');
+  const displayingReading = document.getElementById('displaying-reading');
+  const display = document.getElementById('reading');
+  const moistureText = document.getElementById('moisture-text');
+  const showHist = document.getElementById('showHist');
+  const showLive = document.getElementById('showLive');
+  const histPage = document.getElementById('all-time-chart-page');
+  const livePage = document.getElementById('live-chart-page');
 
-var interval, cnt, startButton, stopButton
+  let interval;
+  let cnt;
 
-cnt = 0;
+  cnt = 0;
 
-// Create graph lines
-Plotly.plot("chart",[{
-  y:[],
-  line: {shape: 'spline'},
-  type:'line'
-}], {
-  yaxis: {
-    range: [300, 1030]
-  },
-  height:200,
-  width:450,
-  margin: {l: 35, r: 35, t: 10, b: 20},
-}, {displayModeBar: false});
+  // Create graph lines
+  Plotly.plot('chart', [{
+    y: [],
+    line: {
+      shape: 'spline',
+    },
+    type: 'line',
+  }], {
+    yaxis: {
+      range: [300, 1030],
+    },
+    height: 200,
+    width: 450,
+    margin: {
+      l: 35,
+      r: 35,
+      t: 10,
+      b: 20,
+    },
+  }, {
+    displayModeBar: false,
+  });
 
-startButton = document.getElementById("startButton");
-stopButton = document.getElementById("stopButton");
-resetButton = document.getElementById("resetButton");
-displaying_reading = document.getElementById("displaying-reading");
-display = document.getElementById("reading");
-moistureText = document.getElementById("moisture-text");
-showHist = document.getElementById("showHist");
-showLive = document.getElementById("showLive");
-histPage = document.getElementById("all-time-chart-page");
-livePage = document.getElementById("live-chart-page");
+  async function createHistGraph() {
+    let allTimeData = await eel.format_readings()();
 
-showHist.onclick = function() {
-  createHistGraph();
-  histPage.style.display = "block";
-  livePage.style.display = "none";
-}
+    let data = [{
+      x: allTimeData[1],
+      y: allTimeData[0],
+      line: {
+        shape: 'spline',
+      },
+      type: 'scatter',
+    }];
 
-showLive.onclick = function() {
-  histPage.style.display = "none";
-  livePage.style.display = "block";
-}
+    Plotly.newPlot('all-time-chart', data);
+  }
 
-startButton.onclick = function() {
-  alert("Make sure the sensor is in the soil")
-  startButton.style.display = "none"
-  stopButton.style.display = "inline-block"
-  displaying_reading.style.visibility = "visible"
+  showHist.onclick = function () {
+    createHistGraph();
+    histPage.style.display = 'block';
+    livePage.style.display = 'none';
+  }
 
-  interval = setInterval(async function(){
-    reading = await getReading();
+  showLive.onclick = function () {
+    histPage.style.display = 'none';
+    livePage.style.display = 'block';
+  }
 
-    moistureText.innerHTML = categoriseReading(reading);
+  startButton.onclick = function () {
+    alert('Make sure the sensor is in the soil');
+    startButton.style.display = 'none';
+    stopButton.style.display = 'inline-block';
+    displayingReading.style.visibility = 'visible';
 
-    display.innerHTML = reading;
-    eel.create(reading)();
-    plotGraph(reading);
-  }, 1000);
-}
+    interval = setInterval(async function () {
+      reading = await getReading();
 
-stopButton.onclick = function() {
-  startButton.style.display = "inline-block"
-  stopButton.style.display = "none"
-  body.setAttribute('bgcolor', 'black')
-  displaying_reading.style.visibility = "hidden"
-  clearInterval(interval)
+      moistureText.innerHTML = categoriseReading(reading);
 
-}
+      display.innerHTML = reading;
+      eel.create(reading)();
+      plotGraph(reading);
+    }, 1000);
+  };
 
-resetButton.onclick = function() {
-  window.location.reload();
-}
+  stopButton.onclick = function () {
+    startButton.style.display = 'inline-block';
+    stopButton.style.display = 'none';
+    body.setAttribute('bgcolor', 'black');
+    displayingReading.style.visibility = 'hidden';
+    clearInterval(interval);
+  };
+
+  resetButton.onclick = function () {
+    window.location.reload();
+  };
 
 
-function categoriseReading(reading){
-  if (reading < 500){
+  function categoriseReading(reading) {
+    if (reading < 500) {
       body.setAttribute('bgcolor', '#F07070')
-      return "Soil is too dry"
+      return 'Soil is too dry';
     } else if (reading > 799) {
       body.setAttribute('bgcolor', '#2177CD')
-      return "Soil is too wet"
+      return 'Soil is too wet';
     } else {
       body.setAttribute('bgcolor', '#21CD6D')
-      return "Soil is juuust right"
+      return 'Soil is juuust right';
     }
   }
 
-function plotGraph(reading){
-  Plotly.extendTraces("chart",{y:[[reading]]},[0]);
-cnt++;
+  function plotGraph(reading) {
+    Plotly.extendTraces('chart', {
+      y: [
+        [reading]
+      ]
+    }, [0]);
+    cnt++;
 
-//moving y axis along
-  if(cnt > 20) {
-    Plotly.relayout('chart', {
-	  xaxis: {
-	    range: [cnt-20,cnt]
-	  }
-    });
-   }
-}
-
-function getReading() {
-    return eel.get_reading_for_eel()()
-}
-
-async function createHistGraph() {
-  let all_time_data = await eel.format_readings()();
-
-  var data = [
-    {
-      x: all_time_data[1],
-      y: all_time_data[0],
-      line: {shape: 'spline'},
-      type: 'scatter'
+    //moving y axis along
+    if (cnt > 20) {
+      Plotly.relayout('chart', {
+        xaxis: {
+          range: [cnt - 20, cnt]
+        }
+      });
     }
-  ];
+  }
 
-  Plotly.newPlot('all-time-chart', data);
-
-};
-
+  function getReading() {
+    return eel.get_reading_for_eel()();
+  }
 };
