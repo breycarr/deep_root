@@ -67,7 +67,7 @@ To run tests for this project, after you have downloaded the repo, run the follo
 
 ### Documentation
 
-We have a Project C A C T U S [blog](https://medium.com/@makers_c_a_c_t_u_s) on Medium, documenting significant moments, such as setting up the hardware for the first time or a fixing a particularly stubborn error.
+We have a Team C A C T U S [blog](https://medium.com/@makers_c_a_c_t_u_s) on Medium, documenting significant moments, such as setting up the hardware for the first time or a fixing a particularly stubborn error.
 
 We used [Trello](https://trello.com/b/DZAhiebz/c-a-c-t-u-s) to divide our daily tasks and assign tickets to pairs. Checkout this repo's [wiki](https://github.com/breycarr/deep_root/wiki) for our group's daily diary using agile methodologies. You can also find the project's:
 - [MVP](https://github.com/breycarr/deep_root/wiki/MVP)
