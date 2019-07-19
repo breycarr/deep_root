@@ -1,31 +1,71 @@
 [![Build Status](https://travis-ci.com/breycarr/deep_root.svg?branch=master)](https://travis-ci.com/breycarr/deep_root) [![Maintainability](https://api.codeclimate.com/v1/badges/3dc1d964235155d65b53/maintainability)](https://codeclimate.com/github/breycarr/deep_root/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/breycarr/deep_root?branch=master)](https://bettercodehub.com/)
 
 # Project DEEPROOT by Team C A C T U S
-> The soil moisture tracker to help track plant health. Final @makersacademy project by Team Cactus
+We were the 🛠  hardware team ⚒ for the final group project at Makers Academy.  
 
-- MVP 1: An LED light display to track plant health.
-- MVP 2: A touchscreen to track plant health.
+We built a portable soil moisture tracker to help monitor plant health by letting users know if it was time to water their plant or if it was best to leave it for a while due to overwatering. The touchscreen shows a real-time graph showing the soil moisture readings. The user can also switch to a historical graph, which displays all the readings taken.
 
-## Installation
+![final](public/images/final.png)
 
-In your terminal, run:
+## Technologies 
+
+H A R D W A R E 
+
+* Raspberry Pi 4 
+* Adafruit Soil Moisture Sensor
+* 4 Pin JST Cable
+* LCD touchscreen
+* Jumper wires
+* Battery pack 
+
+S O F T W A R E 
+* Backend: Python3
+* Frontend: JavaScript, HTML, CSS
+* Framework bridging front-end and back-end: Eel
+
+D E V E L O P M E N T
+* Test framework: Pytest for Python3 
+* Code Quality: Pylama and ESLint
+
+## Installation on Your Raspberry Pi
+
+In the terminal, run:
 
 ```
-> python --version                           # check you have Python installed.
-> brew install python3            # run only if you don't have Python installed.
-> git clone <repo name>
-> pip3 install -r requirements.txt       # install the necessary dependencies
+> python --version                                      # Check you have Python installed
+
+> brew install python3                                  # Run if you don't have Python installed 
+> git clone git@github.com:breycarr/deep_root.git
+> cd deep_root
+> pip3 install -r requirements.txt                      # Install the necessary dependencies for Python
+> npm install                                           # Install dependencies for JavaScript 
+> cd src
+> python3 -m eel app.py web --noconsole --onefile       # Creates executable for desktop icon
 ```
+
+## Using the App
+
+
+![Cacti](public/images/app_icon.png_256x256.png)
+- On your touchscreen, double tap on the cactus icon.
+- Select `Start` to monitor the soil's moisture.
+- Select `Refresh` if you want to monitor a different plant and start graph again.
+- Select `View Historical Data` to see the graph with all the past soil readings.
+
+
 
 ## Testing
 
-This programme uses PyTest.
+To run tests for this project, after you have downloaded the repo, run the following in your terminal:
 
 ```
-> python3 -m pytest
+> pytest --cov   # To run tests and see test coverage for Python3     
 ```
 
-## Documentation
+## PROJECT PROCESS
+
+
+### Documentation
 
 We have a Project C A C T U S [blog](https://medium.com/@makers_c_a_c_t_u_s) on Medium, documenting significant moments, such as setting up the hardware for the first time or a fixing a particularly stubborn error.
 
@@ -33,26 +73,18 @@ We used [Trello](https://trello.com/b/DZAhiebz/c-a-c-t-u-s) to divide our daily 
 - [MVP](https://github.com/breycarr/deep_root/wiki/MVP)
 - [Cacti Garden](https://github.com/breycarr/deep_root/wiki/Cacti-Garden)
 
-## Usage Example
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+### Release History
 
-## Release History
-
-* 1.0.1
-    * MVP Achieved
-* 0.0.1
-    * Work in progress
+* 1.0
+    * MVP Achieved: LED light display to track plant health.
+* 2.0
+    * MVP Acheived: A touchscreen to track plant, generating a real-time graph.
 
 
-## Development Setup
+### Authors' Details
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
-
-
-## Authors' Details
-
-* Co-authored-by: Ben Reynolds-Carr <bjr.kitz@gmail.com>
-* Co-authored-by: Francesca Chater <francescachater@gmail.com>
-* Co-authored-by: Laurence Taylor <ltaylorapp@gmail.com>
-* Co-authored-by: Oliver Brownlow <olliebrownlow@gmail.com>
+* [Ben Reynolds-Carr](https://github.com/breycarr) 
+* [Francesca Chater](https://github.com/fetc90) 
+* [Laurence Taylor](https://github.com/LaurenceTaylor) 
+* [Oliver Brownlow](https://github.com/olliebrownlow)
