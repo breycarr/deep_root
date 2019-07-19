@@ -81,17 +81,17 @@ window.onload = function () {
 
   function categoriseReading(reading) {
     if (reading < 500) {
-      body.setAttribute('bgcolor', '#F07070');
+      body.setAttribute('style', 'background:url(images/too_dry.gif); background-repeat:no-repeat; background-size:cover; rotate="180"')
       return 'Soil is too dry';
     } if (reading > 799) {
-      body.setAttribute('bgcolor', '#2177CD');
+      body.setAttribute('style', 'background:url(https://i.imgur.com/aFXxThM.gif); background-repeat:no-repeat; background-size:cover');
       return 'Soil is too wet';
     } else {
-      body.setAttribute('bgcolor', '#21CD6D');
+      body.setAttribute('style', 'background:url(images/just_right.gif); background-repeat:no-repeat; background-size:cover');
       return 'Soil is juuust right';
     }
   }
-  
+
   showHist.onclick = function () {
     createHistGraph();
     histPage.style.display = 'block';
@@ -104,7 +104,11 @@ window.onload = function () {
   };
 
   startButton.onclick = function () {
-    alert('Make sure the sensor is in the soil');
+    Swal.fire({
+       title: "Before you start",
+       text: "Make sure the sensor is in the soil",
+       confirmButtonText: "Begin monitoring"
+     }).then(() => {
     startButton.style.display = 'none';
     stopButton.style.display = 'inline-block';
     displayingReading.style.visibility = 'visible';
@@ -118,7 +122,7 @@ window.onload = function () {
       eel.create(reading)();
       plotGraph(reading);
     }, 1000);
-  };
+  })};
 
   stopButton.onclick = function () {
     startButton.style.display = 'inline-block';

@@ -2,6 +2,6 @@
 source = src
 omit =
     src/rpidevmocks.py
-    src/light.pyc
     src/*_test.py
     src/app.py
+    src/plant.py
