@@ -7,24 +7,24 @@ We built a portable soil moisture tracker to help monitor plant health by lettin
 
 ![final](public/images/final.png)
 
-## Technologies 
+## Technologies
 
-H A R D W A R E 
+H A R D W A R E
 
-* Raspberry Pi 4 
+* Raspberry Pi 4
 * Adafruit Soil Moisture Sensor
 * 4 Pin JST Cable
 * LCD touchscreen
 * Jumper wires
-* Battery pack 
+* Battery pack
 
-S O F T W A R E 
+S O F T W A R E
 * Backend: Python3
 * Frontend: JavaScript, HTML, CSS
 * Framework bridging front-end and back-end: Eel
 
 D E V E L O P M E N T
-* Test framework: Pytest for Python3 
+* Test framework: Pytest for Python3
 * Code Quality: Pylama and ESLint
 
 ## Installation on Your Raspberry Pi
@@ -34,11 +34,11 @@ In the terminal, run:
 ```
 > python --version                                      # Check you have Python installed
 
-> brew install python3                                  # Run if you don't have Python installed 
+> brew install python3                                  # Run if you don't have Python installed
 > git clone git@github.com:breycarr/deep_root.git
 > cd deep_root
 > pip3 install -r requirements.txt                      # Install the necessary dependencies for Python
-> npm install                                           # Install dependencies for JavaScript 
+> npm install                                           # Install dependencies for JavaScript
 > cd src
 > python3 -m eel app.py web --noconsole --onefile       # Creates executable for desktop icon
 ```
@@ -52,7 +52,9 @@ In the terminal, run:
 - Select `Refresh` if you want to monitor a different plant and start graph again.
 - Select `View Historical Data` to see the graph with all the past soil readings.
 
+### Video
 
+[![Deep Root Makers Final Project](http://img.youtube.com/vi/JEetrixBYKU/0.jpg)](http://www.youtube.com/watch?v=JEetrixBYKU "Project Deep Root")
 
 ## Testing
 
@@ -84,7 +86,7 @@ We used [Trello](https://trello.com/b/DZAhiebz/c-a-c-t-u-s) to divide our daily 
 
 ### Authors' Details
 
-* [Ben Reynolds-Carr](https://github.com/breycarr) 
-* [Francesca Chater](https://github.com/fetc90) 
-* [Laurence Taylor](https://github.com/LaurenceTaylor) 
+* [Ben Reynolds-Carr](https://github.com/breycarr)
+* [Francesca Chater](https://github.com/fetc90)
+* [Laurence Taylor](https://github.com/LaurenceTaylor)
 * [Oliver Brownlow](https://github.com/olliebrownlow)
